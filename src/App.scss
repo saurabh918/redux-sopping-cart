@@ -121,6 +121,15 @@ header {
       width: 225px;
     }
   }
+  .detail-info {
+    display: flex;
+    figure {
+      flex-basis: 30%;
+    }
+    .product-content {
+      flex-basis: 50%;
+    }
+  }
 }
 
 /* button styling */

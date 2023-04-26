@@ -34,6 +34,7 @@ const ProductDetail = () => {
       <div className="wrapper">
         <h1>Product Details</h1>
         <h2>{state.title && state.title}</h2>
+        <div className='detail-info'>
         <figure>
           <img src={state.image && state.image} alt="View Product" />
         </figure>
@@ -48,9 +49,9 @@ const ProductDetail = () => {
         <p>Category - {state.category && state.category}</p>
         </div>
         </div>
+        </div>
         {cart.some(cart => cart === state.id) ?<button className='remove-btn' onClick={()=>{dispatch(removedFromCart(state.id));console.log(store)}}>Remove from Cart</button>:<button className='add-btn' onClick={()=>{dispatch(addedToCart(state.id));console.log(store)}}>Add To Cart</button>
             }
-        
       </div>
     </div>
   )}
