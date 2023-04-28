@@ -48,10 +48,10 @@ const ProductDetail = () => {
         <p>Ratings - {state.rating.rate && state.rating.rate}</p>
         <p>Category - {state.category && state.category}</p>
         </div>
-        </div>
-        </div>
         {cart.some(cart => cart === state.id) ?<button className='remove-btn' onClick={()=>{dispatch(removedFromCart(state.id));console.log(store)}}>Remove from Cart</button>:<button className='add-btn' onClick={()=>{dispatch(addedToCart(state.id));console.log(store)}}>Add To Cart</button>
             }
+        </div>
+        </div>
       </div>
     </div>
   )}

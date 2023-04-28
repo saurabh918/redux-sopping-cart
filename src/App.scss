@@ -10,6 +10,10 @@ body,#root {
   h2 {
     color: #fff;
   }
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .wrapper {
@@ -47,11 +51,15 @@ header {
       flex-wrap: wrap;
       column-gap: 20px;
     }
+    @media only screen and (max-width: 1024px) {
+      justify-content: center;
+    }
   }
   text-align: center;
   .product-container {
     position: relative;
     margin: 20px 0;
+    border-radius: 10px;
     text-decoration: none;
     z-index: 1;
 
@@ -78,6 +86,9 @@ header {
     }
     span {
       color: #808080;
+      @media only screen and (max-width: 767px) {
+        color: #fff;
+      }
     }
     @media only screen and (min-width: 768px) {
       flex-basis: 20%;
@@ -87,6 +98,11 @@ header {
       top: 0;
       right: 0;
       z-index: 2;
+      @media only screen and (max-width: 767px) {
+        position: relative;
+        display: block;
+        margin: 20px auto;
+      }
     }
     button#buy-btn {
       width: 45%;
@@ -109,6 +125,12 @@ header {
         width: 50px;
       }
     }
+    @media only screen and (max-width: 767px) {
+      background-color: transparent;
+    }
+    @media only screen and (max-width: 1024px) {
+      flex-basis: 40%;
+    }
   }
   
 }
@@ -128,6 +150,9 @@ header {
     }
     .product-content {
       flex-basis: 50%;
+    }
+    @media only screen and (max-width: 767px) {
+      display: block;
     }
   }
 }
@@ -149,7 +174,7 @@ button {
 }
 
 button:disabled,button.remove-btn {
-  background-color: #ff0000;
+  background-color: #c4042e;
   color: #fff;
 }
 

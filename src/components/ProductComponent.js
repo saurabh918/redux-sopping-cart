@@ -1,10 +1,12 @@
 import React,{useEffect} from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { addedToCart,removedFromCart } from '../redux'
 
 const ProductComponent = () => {
   const prod = useSelector((state)=>state.product.products)
   const cart = useSelector((state)=>state.addedToCart.cart)
+  const dispatch = useDispatch()
   
   return (
     <div className="all-products">
@@ -22,7 +24,7 @@ const ProductComponent = () => {
         <span className='prod-category'>{prod.category}</span>
         {
           cart.some(p => p === prod.id) ?
-               <button className='remove-btn'>Remove from Cart</button>:<button className='add-btn'>Add To Cart</button>
+               <button className='remove-btn' onClick={()=>{dispatch(removedFromCart(prod.id))}}>Remove from Cart</button>:<button className='add-btn' onClick={()=>{dispatch(addedToCart(prod.id))}}>Add To Cart</button>
         }
         
         </Link>
