@@ -93,7 +93,7 @@ header {
     @media only screen and (min-width: 768px) {
       flex-basis: 20%;
     }
-    button.add-btn,button.remove-btn,button#buy-btn {
+    button.add-btn,button.remove-btn,button.buy-btn {
       position: absolute;
       top: 0;
       right: 0;
@@ -104,7 +104,7 @@ header {
         margin: 20px auto;
       }
     }
-    button#buy-btn {
+    button.buy-btn {
       width: 45%;
       background-color: #008000;
       left: 0;
@@ -234,3 +234,23 @@ button.add-btn:before {
   border-radius: 10px;
 }
 
+.filter-options {
+  .wrapper {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    span {
+      @media only screen and (max-width: 1024px) {
+        display: flex;
+        justify-content: space-between;
+      }
+      label {
+        color: #fff8dc;
+      }
+    }
+    @media only screen and (max-width: 1024px) {
+      flex-direction: column;
+      row-gap: 20px;
+    }
+  }
+}

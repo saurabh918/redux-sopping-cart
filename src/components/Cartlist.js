@@ -50,7 +50,7 @@ const Cartlist = () => {
             <span className='prod-category'>{prod.category}</span>
             {cart.some(cart => cart === prod.id) ?<button className='remove-btn' onClick={()=>{dispatch(removedFromCart(prod.id))}}>Remove from Cart</button>:<button className='add-btn' onClick={()=>{dispatch(addedToCart(prod.id))}}>Add To Cart</button>
           }
-          <button className={"buy-btn" + prod.id} id='buy-btn'  onClick={(e)=> {setValue(); dispatch(totalAmount((prod.price * prod.qty)));}}>Buy ${prod.price}</button>
+          <button className="buy-btn" id='buy-btn'  onClick={(e)=> {setValue(); dispatch(totalAmount((prod.price * prod.qty)));}}>Buy ${prod.price}</button>
           <div className='select-qty'>
             <p>Select Quantity</p>
             <div className='counter'>

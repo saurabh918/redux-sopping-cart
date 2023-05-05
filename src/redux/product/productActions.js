@@ -1,4 +1,4 @@
-import { SET_PRODUCTS,SELECTED_PRODUCT,PRODUCT_ADDED_TO_CART,PRODUCT_REMOVED_FROM_CART,TOTAL_AMOUNT_TOBE_PAID } from "./productTypes";
+import { SET_PRODUCTS,SELECTED_PRODUCT,PRODUCT_ADDED_TO_CART,PRODUCT_REMOVED_FROM_CART,TOTAL_AMOUNT_TOBE_PAID,MEN_CLOTHING_SELECTED,WOMEN_CLOTHING_SELECTED,ELECTRONIC_SELECTED,JEWELRY_SELECTED} from "./productTypes";
 
 export const setProducts = (products) => {
   return {
@@ -32,5 +32,29 @@ export const totalAmount = (price) => {
   return {
     type: TOTAL_AMOUNT_TOBE_PAID,
     payload: price
+  }
+}
+
+export const menClothingSelected = () => {
+  return {
+    type: MEN_CLOTHING_SELECTED
+  }
+}
+
+export const womenClothingSelected = () => {
+  return {
+    type: WOMEN_CLOTHING_SELECTED
+  }
+}
+
+export const electronicsSelected = () => {
+  return {
+    type: ELECTRONIC_SELECTED
+  }
+}
+
+export const jewelrySelected = () => {
+  return {
+    type: JEWELRY_SELECTED
   }
 }

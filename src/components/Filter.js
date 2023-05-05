@@ -1,32 +1,39 @@
-import React, { useContext } from 'react'
-import { Button, FormCheck } from 'react-bootstrap'
-import { CartContext } from '../context/Context'
-import Rating from './Rating'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { electronicsSelected, jewelrySelected, menClothingSelected, setProducts, womenClothingSelected } from '../redux'
+import { Link } from 'react-router-dom'
 
 const Filter = () => {
-  const { filterState:{sort,byStock,byFastDelivery,rating,searchStr},filterDispatch } = useContext(CartContext)
-  console.log(sort,byStock,byFastDelivery,rating,searchStr)
+  const dispatch = useDispatch()
+  const state = useSelector(state=>state)
+  const clearFilters = () => {
+    let radio = document. querySelector('input[type=radio]:checked');
+    if(radio) radio. checked = false;
+    dispatch(setProducts(state.product.allproducts))
+  }
   return (
     <div className='filter-options'>
-      <span className="title">Filter Products</span>
+      <div className='wrapper'>
       <span>
-        <FormCheck inline label="Ascending" name="group1" type="radio" onChange={()=>filterDispatch({type:"sortByPrice",payload:"lowToHigh"})} />
-      </span>
-      <span>
-        <FormCheck inline label="Descending" name="group1" type="radio" onChange={()=>filterDispatch({type:"sortByPrice",payload:"HighToLow"})} />
+        <label>Men's clothing</label>
+        <input inline name="group1" type="radio" onChange={()=>dispatch(menClothingSelected())} />
       </span>
       <span>
-        <FormCheck inline label="Include Out of Stock" name="group1" type="checkbox" onChange={()=>filterDispatch({type:"filterByStock"})} checked={byStock} />
+      <label>Women's clothing</label>
+        <input inline name="group1" type="radio" onChange={()=>dispatch(womenClothingSelected())} />
       </span>
       <span>
-        <FormCheck inline label="Fast Delivery Only" name="group1" type="checkbox" onChange={()=>filterDispatch({type:"filterByFastDelivery"})} checked={byFastDelivery} />
+      <label>Electronics</label>
+        <input inline name="group1" type="radio" onChange={()=>dispatch(electronicsSelected())} />
       </span>
-      <span className='star-ratings'>
-        <Rating rating={rating} onClick={(i)=>{ filterDispatch({type:"filterByRating",payload: i+1 })}} style={{ cursor:"pointer" }}/>
+      <span>
+      <label>Jewelry</label>
+        <input inline name="group1" type="radio" onChange={()=>dispatch(jewelrySelected())} />
       </span>
-      <Button onClick={()=>filterDispatch({type:"clearFilter"})}>
-        Clear Filters
-      </Button>
+      <button onClick={()=>clearFilters()}>
+        Clear Filter
+      </button>
+      </div>
     </div>
   )
 }

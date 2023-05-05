@@ -1,4 +1,4 @@
-import { SET_PRODUCTS,SELECTED_PRODUCT,PRODUCT_ADDED_TO_CART,PRODUCT_REMOVED_FROM_CART, TOTAL_AMOUNT_TOBE_PAID } from "./productTypes";
+import { SET_PRODUCTS,SELECTED_PRODUCT,PRODUCT_ADDED_TO_CART,PRODUCT_REMOVED_FROM_CART, TOTAL_AMOUNT_TOBE_PAID,MEN_CLOTHING_SELECTED,WOMEN_CLOTHING_SELECTED,ELECTRONIC_SELECTED,JEWELRY_SELECTED } from "./productTypes";
 
 const initialState = {
   products : []
@@ -12,7 +12,15 @@ const cart = {
 export const productReducers = (state=initialState,action) => {
   switch(action.type) {
     case SET_PRODUCTS:
-      return {...state,products:action.payload};
+      return {...state,products:action.payload,allproducts:action.payload};
+    case MEN_CLOTHING_SELECTED:
+      return {...state,products:[...state.allproducts.filter(p => p.category === "men's clothing")]}
+    case WOMEN_CLOTHING_SELECTED:
+      return {...state,products:[...state.allproducts.filter(p=>p.category === "women's clothing")]}
+    case ELECTRONIC_SELECTED:
+      return {...state,products:[...state.allproducts.filter(p=>p.category === "electronics")]}
+    case JEWELRY_SELECTED:
+      return {...state,products:[...state.allproducts.filter(p=>p.category === "jewelery")]}
     default:
       return state
   }
